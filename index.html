@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+ <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+    
+    <title>calculator</title>
+</head>
+<body>
+
+        <h4>Iphone Calculator ios26.1</h4> 
+        <div class="btns">        
+        <div class="btnsup">
+            <button  onclick="openMenu('menu')"><i class="ph ph-list-bullets"></i></button>
+            <button  onclick="openOptions('options')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><rect width="14.5" height="18.5" x="4.75" y="2.75" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" rx="3"/><rect width="7.5" height="3.75" x="8.25" y="6.25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" rx="1"/><circle cx="8.5" cy="13.5" r="1" fill="currentColor"/><circle cx="12" cy="13.5" r="1" fill="currentColor"/><circle cx="15.5" cy="13.5" r="1" fill="currentColor"/><circle cx="8.5" cy="17.5" r="1" fill="currentColor"/><circle cx="12" cy="17.5" r="1" fill="currentColor"/><circle cx="15.5" cy="17.5" r="1" fill="currentColor"/></g></svg></button>
+            </div>
+            <div class="display">
+            <input type="text" id="display1" class="display1" readonly>
+            <input type="text" id="display2" class="display2" readonly>
+            </div>
+            <div class="btnsdown">
+            <button onclick="backSpace()" class="greybtns"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-delete-icon lucide-delete"><path d="M10 5a2 2 0 0 0-1.344.519l-6.328 5.74a1 1 0 0 0 0 1.481l6.328 5.741A2 2 0 0 0 10 19h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z"/><path d="m12 9 6 6"/><path d="m18 9-6 6"/></svg></button>
+            <button onclick="clearDisplay()" class="greybtns">AC</button>
+            <button onclick="appendToDisplay('%')" class="greybtns"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="60" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 5L5 19m12.5 1c1.667 0 2.5-.857 2.5-3s-.833-3-2.5-3s-2.5.857-2.5 3s.833 3 2.5 3m-11-10C8.167 10 9 9.143 9 7s-.833-3-2.5-3S4 4.857 4 7s.833 3 2.5 3"/></svg></button>
+            <button onclick="appendToDisplay('/')" class="orangebtns"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="60" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.874 5.248a1.125 1.125 0 1 1 2.25 0a1.125 1.125 0 0 1-2.25 0m-7.125 6.75a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75m7.125 6.753a1.125 1.125 0 1 1 2.25 0a1.125 1.125 0 0 1-2.25 0" clip-rule="evenodd"/></svg></button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('*')"class="orangebtns"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="60" viewBox="0 0 24 24"><path fill="currentColor" d="m13.41 12l6.3-6.29a1 1 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1 1 0 0 0-1.42 1.42l6.3 6.29l-6.3 6.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l6.29-6.3l6.29 6.3a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42Z"/></svg></button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('-')"class="orangebtns"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="60" viewBox="0 0 24 24"><path fill="currentColor" d="M5 13v-1h13v1z"/></svg></button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('+')" class="orangebtns"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="60" viewBox="0 0 24 24"><path fill="currentColor" d="M5 13v-1h6V6h1v6h6v1h-6v6h-1v-6z"/></svg></button>
+            <button onclick="appendToDisplay('.')"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="60" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21L21 3M7 3v8m4-4H3m18 11h-8"/></svg></button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay(',')">,</button>
+            <button onclick="calculate()"class="orangebtns"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="60" viewBox="0 0 24 24"><path fill="currentColor" d="M19 10H5V8h14zm0 6H5v-2h14z"/></svg></button>
+
+   
+            </div>
+    </div>
+    <script src="scripte.js"></script>
+</body>
+</html>

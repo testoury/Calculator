@@ -1,0 +1,225 @@
+/* ============================================================
+   RESET — remove all browser default spacing & sizing quirks
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* border + padding included in element width/height */
+}
+
+
+/* ============================================================
+   BASE — page background, font, and centering
+   ============================================================ */
+body {
+    font-family: 'Inter', sans-serif; /* Inter loaded via Google Fonts */
+    background: #1b1a1a;              /* dark page background */
+    display: flex;                    /* flex to center the calculator */
+    flex-direction: column;           /* stack h1 and calculator vertically */
+    justify-content: center;          /* center vertically on page */
+    align-items: center;              /* center horizontally on page */
+    height: 100vh;                    /* full viewport height */
+}
+
+
+/* ============================================================
+   PAGE TITLE — styled like a brand name
+   ============================================================ */
+h4 {
+    text-align: center;
+    margin-bottom: 15px;              /* space between title and calculator */
+    color: #c084b0;                   /* soft purple-pink color */
+    font-size: 1.4rem;                /* not too big, elegant size */
+    font-weight: 300;                 /* thin weight — looks modern */
+    letter-spacing: 4px;             /* wide spacing between letters */
+    text-transform: uppercase;        /* ALL CAPS for style */
+    opacity: 0.85;                    /* slightly faded — subtle look */
+}
+
+
+/* ============================================================
+   CALCULATOR WRAPPER (.btns)
+   — outer black rounded container
+   — grid with 3 rows: top-bar / display / buttons
+   ============================================================ */
+.btns {
+    display: grid;
+    grid-template-rows: auto auto 1fr; /* top-bar & display shrink to content, buttons fill rest */
+    width: 300px;
+    min-height: 550px;
+    margin: 0;                         /* body flex handles centering */
+    background: #000000;
+    border-radius: 30px;               /* rounded corners like iPhone */
+    overflow: hidden;                  /* clips children to rounded corners */
+}
+
+
+/* ============================================================
+   TOP BAR (.btnsup)
+   — flex row with menu icon left, options icon right
+   ============================================================ */
+.btnsup {
+    display: flex;
+    justify-content: space-between;    /* pushes buttons to opposite ends */
+    align-items: flex-start;
+    margin: 15px;                      /* spacing from calculator edges */
+}
+
+/* phosphor icon size */
+i {
+    font-size: 25px;
+}
+
+/* top bar icon buttons — circular, near-black */
+.btnsup button {
+    background: rgb(22, 21, 21);
+    border: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;           /* centers icon inside button */
+    align-items: center;
+    padding: 0;
+    border-radius: 50%;                /* circular shape */
+}
+
+
+/* ============================================================
+   DISPLAY AREA (.display)
+   — two stacked inputs, right-aligned
+   — display1: small grey previous expression
+   — display2: large white current number / result
+   ============================================================ */
+.display {
+    display: flex;
+    flex-direction: column;            /* stack display1 above display2 */
+    align-items: flex-end;
+    padding: 0 15px;
+    gap: 0;                            /* no gap — inputs sit tight together */
+    margin-top: 50px;                  /* space below top bar */
+}
+
+/* previous expression line — small and grey */
+.display1 {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: grey;
+    font-size: 18px;
+    text-align: right;
+    font-family: 'Inter', sans-serif;
+    height: 25px;
+    outline: none;                     /* removes focus ring */
+}
+
+/* current number / result line — large and white */
+.display2 {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 40px;
+    text-align: right;
+    font-family: 'Inter', sans-serif;
+    height: 55px;
+    outline: none;                     /* removes focus ring */
+}
+
+
+/* ============================================================
+   BUTTONS — base style (dark, circular)
+   ============================================================ */
+button {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    color: #fff;
+    background: #2e2e2e;               /* dark grey — number buttons */
+    border: none;
+    border-radius: 50%;                /* circular shape */
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    transition: transform 0.1s, background 0.1s; /* smooth hover animation */
+    display: flex;
+    justify-content: center;           /* centers SVG icons inside button */
+    align-items: center;
+}
+
+
+/* ============================================================
+   BUTTON GRID (.btnsdown)
+   — 4 equal columns, centred
+   ============================================================ */
+.btnsdown {
+    display: grid;
+    grid-template-columns: repeat(4, auto); /* 4 columns sized to button width */
+    justify-content: center;
+    align-content: start;              /* buttons stack from top */
+    gap: 10px;                         /* space between every button */
+    padding: 15px 0;                   /* breathing room top and bottom */
+    margin: 0;
+}
+
+
+/* ============================================================
+   BUTTON VARIANTS
+   ============================================================ */
+
+/* grey buttons — AC, backspace, % */
+.greybtns {
+    background: #666666;
+}
+
+/* orange buttons — operators and = */
+.orangebtns {
+    background: #e98605;
+}
+
+
+/* ============================================================
+   HOVER STATES
+   ============================================================ */
+
+/* default button hover — slightly lighter + scale up */
+button:hover {
+    transform: scale(1.15);
+    border: 1px solid #585858;
+    background: #ffffff5d;
+}
+
+/* grey button hover */
+.greybtns:hover {
+    background: #7c7c7c;
+    transform: scale(1.25);
+}
+
+/* orange button hover */
+.orangebtns:hover {
+    background: #ec8f15;
+    border-color: #ffffff1e;
+}
+
+
+/* ============================================================
+   ACTIVE / PRESS STATES — shrinks button on click for feedback
+   ============================================================ */
+
+/* default button press */
+button:active {
+    transform: scale(0.95);
+    background-color: hsl(0, 0%, 46%);
+}
+
+/* orange button press */
+.orangebtns:active {
+    transform: scale(0.95);
+    background-color: hsl(36, 84%, 52%);
+}
+
+/* grey button press */
+.greybtns:active {
+    transform: scale(0.95);
+    background-color: hsl(0, 0%, 40%);
+}
